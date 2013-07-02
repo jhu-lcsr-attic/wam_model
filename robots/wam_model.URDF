@@ -1,0 +1,502 @@
+<robot
+  name="wam_model">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.0919550463594118 5.08462114903671E-05 0.06744754423679"
+        rpy="0 0 0" />
+      <mass
+        value="2.67254927672464" />
+      <inertia
+        ixx="0.0338923619215595"
+        ixy="-1.70043839969996E-05"
+        ixz="-0.00416941982866629"
+        iyy="0.0420921874280229"
+        iyz="-4.57743767721405E-06"
+        izz="0.0553764431769568" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wam_model/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wam_model/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="base_yaw_link">
+    <inertial>
+      <origin
+        xyz="2.47322501506497E-08 -2.96910917380044E-09 0.106503025971672"
+        rpy="0 0 0" />
+      <mass
+        value="12.6535414859694" />
+      <inertia
+        ixx="0.199822402583175"
+        ixy="8.47012089336799E-08"
+        ixz="-3.73911877794085E-08"
+        iyy="0.107087726203989"
+        iyz="2.75190769141115E-09"
+        izz="0.171850063232376" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wam_model/meshes/base_yaw_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wam_model/meshes/base_yaw_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_yaw_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 0.16"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="base_yaw_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3"
+      upper="3"
+      effort="40"
+      velocity="2" />
+  </joint>
+  <link
+    name="shoulder_link">
+    <inertial>
+      <origin
+        xyz="-1.68500531003146E-06 -0.0504690286262692 1.0317185817274E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.437815219798136" />
+      <inertia
+        ixx="0.00161441364764365"
+        ixy="-3.33213428015865E-08"
+        ixz="-3.42708638284592E-08"
+        iyy="0.00132132178685251"
+        iyz="-8.89408494237585E-09"
+        izz="0.00183374073419954" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wam_model/meshes/shoulder_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wam_model/meshes/shoulder_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="shoulder_pitch_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 0.186"
+      rpy="-1.5708 1.6653E-16 -1.4646E-16" />
+    <parent
+      link="base_yaw_link" />
+    <child
+      link="shoulder_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-2"
+      upper="2"
+      effort="40"
+      velocity="2" />
+  </joint>
+  <link
+    name="upper_arm_link">
+    <inertial>
+      <origin
+        xyz="0.0130868978725444 -9.05815538142923E-06 0.448714683040612"
+        rpy="0 0 0" />
+      <mass
+        value="5.14343147836093E-05" />
+      <inertia
+        ixx="1.12691041047209E-06"
+        ixy="-9.94778283944701E-12"
+        ixz="6.55394951197905E-08"
+        iyy="1.1140362581574E-06"
+        iyz="-4.20859101779925E-11"
+        izz="1.08418369812443E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wam_model/meshes/upper_arm_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wam_model/meshes/upper_arm_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="shoulder_yaw_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="1.5708 2.0071E-17 -6.6116E-17" />
+    <parent
+      link="shoulder_link" />
+    <child
+      link="upper_arm_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3"
+      upper="3"
+      effort="40"
+      velocity="2" />
+  </joint>
+  <link
+    name="elbow_link">
+    <inertial>
+      <origin
+        xyz="-0.0137134727905822 -0.0165465881859117 3.22577811083524E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.584266817590728" />
+      <inertia
+        ixx="0.000909486481212185"
+        ixy="0.00031197356186427"
+        ixz="-6.87265625097063E-08"
+        iyy="0.000838845362536538"
+        iyz="-9.86470585446815E-08"
+        izz="0.00125690671159503" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wam_model/meshes/elbow_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wam_model/meshes/elbow_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="elbow_pitch_joint"
+    type="revolute">
+    <origin
+      xyz="0.045 0 0.55"
+      rpy="-1.5708 1.0605E-17 8.8291E-17" />
+    <parent
+      link="upper_arm_link" />
+    <child
+      link="elbow_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.9"
+      upper="3.141"
+      effort="30"
+      velocity="2" />
+  </joint>
+  <link
+    name="forearm_link">
+    <inertial>
+      <origin
+        xyz="3.29000715559857E-13 -0.000156262592180247 0.0984690646167949"
+        rpy="0 0 0" />
+      <mass
+        value="1.29357496911887" />
+      <inertia
+        ixx="0.00496651188941751"
+        ixy="-2.76589367028784E-12"
+        ixz="-8.00058727843717E-15"
+        iyy="0.00485876853987555"
+        iyz="-5.47811203778456E-06"
+        izz="0.00135660637656777" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wam_model/meshes/forearm_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.501960784313725 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wam_model/meshes/forearm_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="elbow_fixed_joint"
+    type="fixed">
+    <origin
+      xyz="-0.045 -0.073 0"
+      rpy="-1.5708 2.0829E-16 -3.1416" />
+    <parent
+      link="elbow_link" />
+    <child
+      link="forearm_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="wrist_yaw_link">
+    <inertial>
+      <origin
+        xyz="-1.90129043758924E-08 8.89137374837645E-12 0.0187635839764113"
+        rpy="0 0 0" />
+      <mass
+        value="0.149006334904883" />
+      <inertia
+        ixx="6.71209656034608E-05"
+        ixy="-4.98096436567348E-11"
+        ixz="-8.16159140395389E-11"
+        iyy="8.68252419459944E-05"
+        iyz="-8.28956132931605E-12"
+        izz="8.70771750517795E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wam_model/meshes/wrist_yaw_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.909803921568627 0.443137254901961 0.0313725490196078 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wam_model/meshes/wrist_yaw_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wrist_yaw_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 0.1993"
+      rpy="3.251E-18 4.8938E-17 0" />
+    <parent
+      link="forearm_link" />
+    <child
+      link="wrist_yaw_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-4.8"
+      upper="1.3"
+      effort="20"
+      velocity="2" />
+  </joint>
+  <link
+    name="wrist_pitch_link">
+    <inertial>
+      <origin
+        xyz="-9.92257917498129E-08 -0.0240134211764387 0.00776532231753149"
+        rpy="0 0 0" />
+      <mass
+        value="0.186412635945879" />
+      <inertia
+        ixx="0.000275125997394292"
+        ixy="-6.6180460288222E-11"
+        ixz="8.92952803852232E-10"
+        iyy="0.000229084926797487"
+        iyz="-5.89996680107934E-06"
+        izz="0.000135282060740349" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wam_model/meshes/wrist_pitch_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wam_model/meshes/wrist_pitch_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wrist_pitch_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 0.02721"
+      rpy="-1.5708 -1.1076E-17 8.7267E-18" />
+    <parent
+      link="wrist_yaw_link" />
+    <child
+      link="wrist_pitch_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="20"
+      velocity="2" />
+  </joint>
+  <link
+    name="palm_link">
+    <inertial>
+      <origin
+        xyz="-5.55111512312578E-17 0 0.00888734044750628"
+        rpy="0 0 0" />
+      <mass
+        value="0.0367041454950422" />
+      <inertia
+        ixx="2.39607768474458E-05"
+        ixy="-3.76158192263132E-37"
+        ixz="-3.15875558832574E-21"
+        iyy="2.39607768474458E-05"
+        iyz="4.87370516192273E-21"
+        izz="4.7305630985765E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wam_model/meshes/palm_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 1 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wam_model/meshes/palm_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="palm_yaw_joint"
+    type="revolute">
+    <origin
+      xyz="0 -0.04795 0"
+      rpy="1.5708 5.3411E-17 -6.2148E-17" />
+    <parent
+      link="wrist_pitch_link" />
+    <child
+      link="palm_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.2"
+      upper="2.2"
+      effort="10"
+      velocity="2" />
+  </joint>
+</robot>
